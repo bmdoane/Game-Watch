@@ -32,6 +32,19 @@ app.post('/api/newUser', (req, res, err) => {
 		.catch(err)
 })
 
+// Read User in MongoDB
+app.get('/api/getUser/:id', (req, res, err) => {
+	let userId = req.params.id
+
+	User
+		.findById(userId)
+		.then((user) => {
+			console.log("Got user", user);
+			res.json(user)
+		})
+		.catch(err)
+})
+
 // Delete User in MongoDB
 app.get('/api/deleteUser/:id', (req, res, err) => {
 	// Testing in Postman with - localhost:3000/api/deleteUser/580e2d78f9ba2d77549e62b9  (id of user in mongoDB)
@@ -52,7 +65,7 @@ app.get('/api/deleteUser/:id', (req, res, err) => {
 })
 
 // Update User in MongoDB
-app.patch('/api/updateUser/:id', (req, res, err) => {
+app.put('/api/updateUser/:id', (req, res, err) => {
 	let userId = {
 		_id: req.params.id
 	}
