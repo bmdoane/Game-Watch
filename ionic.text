@@ -1,0 +1,39 @@
+Ionic notes
+
+Ionic, Cordova, PhoneGap
+- Basically webrowser w/o agilespar
+- Full screen, no address bar
+- Can add plugins (accelerometer, vibration), things Chrome does not currently have
+- Ionic gets more capable as browsers get better adding these plugins
+- Cordova and PhoneGap's features become obsolete
+Ionic
+- HTML and CSS classes change look of phone based on what OS you run
+- Would rely on Ionic updates to stay current with new OS updates
+
+
+ReactNative, NativeScript
+- Does not run in browser
+- Native frames
+- Native elements
+- Native features
+ReactNative, NativeScript
+- Use exact buttons and elements from OS you run
+- Would update with new OS updates
+- No DOM frameworks
+- React, Angular 2
+- Vanilla JS
+ReactNative
+- Can only code with react
+- Created by Facebook, has their weight behind it
+- In beta, changing a lot
+NativeScript
+- Supports any framework that supports service side rendering
+- More open soure
+
+
+Xamaran C#
+- Native 100% compiled, fastest
+- Used for modern game apps
+- Limits on features if writing in certain languages
+- May need to write in several languages
+- Titanium JS?
