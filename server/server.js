@@ -17,15 +17,25 @@ const PORT = process.env.PORT || 3000
 app.use(express.static('client'))
 app.use(json())
 
-// Model (to be refactored) for MongoDB 
+// Model (to be refactored) for MongoDB
+// Look at flattening game and reminder data by using userId
 const User = mongoose.model('user', {
 		username: String,
-		teams: [String]
+		teamsId: [String],
+		game: [{
+			time: String,
+			date: String,
+			opponentId: String
+		}],
+		reminders: [{
+			textTime: String,
+			textDate: String
+		}]
+		// Look at twilio about what info it needs for time sorting
 })
 
 // Create User in MongoDB
 app.post('/api/newUser', (req, res, err) => {
-	console.log("req.body", req.body)
 	User
 		.create(req.body)
 		.then(user => res.json(user))
