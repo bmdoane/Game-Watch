@@ -20,8 +20,9 @@ app.use(json())
 // Model (to be refactored) for MongoDB
 // Look at flattening game and reminder data by using userId
 const User = mongoose.model('user', {
-		username: String,
-		teamsId: [String],
+		userName: String,
+		phoneNumber: String,
+		teams: [String],
 		game: [{
 			time: String,
 			date: String,
