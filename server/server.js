@@ -5,8 +5,8 @@ const express = require('express')
 const mongoose = require('mongoose')
 const request = require('request')
 
-const { cfg } = require('./twilioConfig')
-const { sendSMS } = require('twilioUser')
+// Probably going to move this out - test works
+// const { sendSms } = require('./twilioUser')
 
 // API key protection
 const dotenv = require('dotenv')
@@ -21,7 +21,7 @@ app.use(express.static('client'))
 app.use(json())
 
 // How can I send this for test
-app.use(sendSMS)
+// app.use(sendSMS)
 
 // Model (to be refactored) for MongoDB
 // Look at flattening game and reminder data by using userId
@@ -38,11 +38,12 @@ const User = mongoose.model('user', {
 			textTime: String,
 			textDate: String
 		}]
-		// Look at twilio about what info it needs for time sorting
 })
 
 // Create User in MongoDB
 app.post('/api/newUser', (req, res, err) => {
+	// This was thrown in to test twilio text to phone
+	// sendSms()
 	User
 		.create(req.body)
 		.then(user => res.json(user))
