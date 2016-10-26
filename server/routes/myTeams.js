@@ -1,7 +1,7 @@
 'use strict'
 
 const router = require('express').Router()
-// require myTeamCtrl
+const { getUserFunc, getUserTeamFunc, getTDOFunc, getReminderFunc } = require('../controllers/myTeamCtrl')
 
 router.get('/api/user/:id', getUserFunc)
 router.get('/api/user/:id', getUserTeamFunc)

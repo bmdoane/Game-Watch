@@ -1,7 +1,7 @@
 'use strict'
 
 router = require('express').Router()
-// require regCtrl
+const { regFunc } = require('../controllers/regCtrl')
 
 router.post('/register', registerFunc)
 

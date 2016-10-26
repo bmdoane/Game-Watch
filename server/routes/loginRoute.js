@@ -1,7 +1,7 @@
 'use strict'
 
 const router = require('express').Router()
-// require login ctrl
+const { loginFunc } = require('../controllers/loginCtrl')
 
 router.get('/login', loginFunc)
 

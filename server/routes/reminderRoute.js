@@ -1,7 +1,7 @@
 'use strict'
 
 const router = require('express').Router()
-// require reminderCtrl
+const { getReminderFunc, createReminderFunc, deleteReminderFunc, updateReminderFunc } = require('../controllers/reminderCtrl')
 
 router.get('/api/user/reminders', getReminderFunc)
 router.post('/api/user/reminders/create', createReminderFunc)
