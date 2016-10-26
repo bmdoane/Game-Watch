@@ -8,6 +8,9 @@ const request = require('request')
 // Models
 const User = require('./models/user')
 
+// Routes
+const routes = require('./routes/')
+
 // Probably going to move this out - test works
 // const { sendSms } = require('./twilioUser')
 
