@@ -5,6 +5,9 @@ const express = require('express')
 const mongoose = require('mongoose')
 const request = require('request')
 
+// Models
+const User = require('./models/user')
+
 // Probably going to move this out - test works
 // const { sendSms } = require('./twilioUser')
 
@@ -22,23 +25,6 @@ app.use(json())
 
 // How can I send this for test
 // app.use(sendSMS)
-
-// Model (to be refactored) for MongoDB
-// Look at flattening game and reminder data by using userId
-const User = mongoose.model('user', {
-		userName: String,
-		phoneNumber: String,
-		teams: [String],
-		game: [{
-			time: String,
-			date: String,
-			opponentId: String
-		}],
-		reminders: [{
-			textTime: String,
-			textDate: String
-		}]
-})
 
 // Create User in MongoDB
 app.post('/api/newUser', (req, res, err) => {
