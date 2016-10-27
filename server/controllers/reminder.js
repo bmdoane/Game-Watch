@@ -3,7 +3,11 @@
 const User = require('../models/user')
 
 module.exports.getReminder = (req, res) => {
-	res.send('Pick it up!')
+  User
+  	.findById(req.params.userId)
+  	.then((user) => {
+  		res.json(user.reminders)
+  	})
 }
 
 module.exports.createReminder = (req, res) => {
