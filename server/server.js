@@ -1,30 +1,31 @@
 'use strict'
 
-const { json } = require('body-parser')
 const express = require('express')
-const mongoose = require('mongoose')
 const request = require('request')
-
-// Models
+const mongoose = require('mongoose')
+const { json } = require('body-parser')
+const app = express()
+const PORT = process.env.PORT || 3000
 const User = require('./models/user')
-
-// Routes
-const routes = require('./routes/')
-
-// Probably going to move this out - test works
-// const { sendSms } = require('./twilioUser')
-
 // API key protection
 const dotenv = require('dotenv')
 dotenv.load()
 const MYSPORTSFEEDSSCHEDULE_URL = process.env.MYSPORTSFEEDSSCHEDULE_URL
 
-const app = express()
 const MONGODB_URL = process.env.MONGODB_URL || 'mongodb://localhost:27017/gamewatch'
-const PORT = process.env.PORT || 3000
 
+const routes = require('./routes/')
+
+// Probably going to move this out - test works
+// const { sendSms } = require('./twilioUser')
+
+
+// Middlewares
 app.use(express.static('client'))
 app.use(json())
+
+// Routes
+app.use(routes)
 
 // How can I send this for test
 // app.use(sendSMS)
