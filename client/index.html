@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Game Watch</title>
+	<link rel="stylesheet" href="styles/main.css">		
+</head>
+<body ng-app="Game-Watch">
+
+	<div ng-controller="NavCtrl">	
+		<div ng-view></div>
+	</div>
+
+	<!-- Third Party Scripts-->
+	<script src="lib/angular/angular.min.js"></script>
+	<script src="lib/angular-route/angular-route.min.js"></script>	
+	<!-- Application Script -->
+	<script src="app/app.js"></script>
+	<!-- Controller Scripts -->
+	<script src="app/controllers/NavCtrl.js"></script>
+	<script src="app/controllers/LoginCtrl.js"></script>
+	<script src="app/controllers/RegisterCtrl.js"></script>
+	<script src="app/controllers/MyTeamCtrl.js"></script>
+	<script src="app/controllers/NflCtrl.js"></script>
+	<script src="app/controllers/ReminderCtrl.js"></script>
+	<script src="app/controllers/TeamCtrl.js"></script>
+	<!-- Factory Scripts -->
+</body>
+</html>

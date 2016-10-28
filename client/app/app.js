@@ -1,6 +1,6 @@
 'use strict'
 
-const app = angular.module('GameWatch', ['ngRoute'])
+const app = angular.module('Game-Watch', ['ngRoute'])
 
 app.config(function($routeProvider) {
 
