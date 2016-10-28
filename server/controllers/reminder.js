@@ -10,16 +10,22 @@ module.exports.getReminder = (req, res) => {
   	})
 }
 
+// This is not working....
 module.exports.createReminder = (req, res) => {
+	console.log("2req.params.userId", req.params.userId);
 	User
   	.findById(req.params.userId)
   	.then((user) => {
   		console.log("user1", user.reminders)
   		user.reminders
-  			// .create({textTime: "10:00pm", textDate: "2016-10-27"})
-  			// .then((obj) => {
-  			// 	console.log("obj", obj);
-  			// })
+  			.create({
+  				textTime: "",
+  				textDate: ""
+  			})
+  			.then((obj) => {
+  				console.log("obj", obj);
+  			user.save()
+  			})
   	})
 }
 
