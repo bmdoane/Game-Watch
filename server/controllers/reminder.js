@@ -11,12 +11,30 @@ module.exports.getReminder = (req, res) => {
 }
 
 module.exports.createReminder = (req, res) => {
-	console.log("req", req);
-	res.send('More code to write!')	
+	User
+  	.findById(req.params.userId)
+  	.then((user) => {
+  		console.log("user1", user.reminders)
+  		user.reminders
+  			// .create({textTime: "10:00pm", textDate: "2016-10-27"})
+  			// .then((obj) => {
+  			// 	console.log("obj", obj);
+  			// })
+  	})
 }
 
 module.exports.deleteReminder = (req, res) => {
-	res.send('It works!')	
+	console.log("req.params.reminderId", req.params.reminderId)
+
+	User
+  	.findById(req.params.userId)
+  	.then((user) => {
+  		console.log("user1", user.reminders)
+  		user.reminders
+  			.pull(req.params.reminderId)
+  			user.save()
+  			res.end()  // res.send also triggers res.end()
+  	})
 }
 
 module.exports.updateReminder = (req, res) => {
