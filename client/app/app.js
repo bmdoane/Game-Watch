@@ -1,33 +1,33 @@
 'use strict'
 
-const app = angular.module('Game-Watch', ['ngRoute'])
+const app = angular.module('GameWatch', ['ngRoute'])
 
 app.config(function($routeProvider) {
 
 	$routeProvider
-	.when('/login', {
-		templateURL: 'partials/login.html'
+	.when('/', {
+		templateUrl: 'partials/login.html',
 		controller: 'LoginCtrl'
 	})
 	.when('/register', {
-		templateURL: 'partials/register.html'
+		templateUrl: 'partials/register.html',
 		controller: 'RegisterCtrl'
 	})	
 	.when('/myTeam', {
-		templateURL: 'partials/myTeam.html'
+		templateUrl: 'partials/myTeam.html',
 		controller: 'RegisterCtrl'
 	})	
 	.when('/nfl', {
-		templateURL: 'partials/nfl.html'
+		templateUrl: 'partials/nfl.html',
 		controller: 'NflCtrl'
 	})
 	.when('/reminder', {
-		templateURL: 'partials/reminder.html'
+		templateUrl: 'partials/reminder.html',
 		controller: 'ReminderCtrl'
 	})			
 	.when('/team', {
-		templateURL: 'partials/team.html'
+		templateUrl: 'partials/team.html',
 		controller: 'TeamCtrl'
 	})
-	.otherwise('/login')		
+	.otherwise('/')		
 })
