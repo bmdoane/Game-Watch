@@ -2,7 +2,7 @@
 
 const app = angular.module('GameWatch', ['ngRoute'])
 
-app.config(function($routeProvider) {
+app.config(function($routeProvider, $locationProvider) {
 
 	$routeProvider
 	.when('/', {
@@ -29,5 +29,11 @@ app.config(function($routeProvider) {
 		templateUrl: 'partials/team.html',
 		controller: 'TeamCtrl'
 	})
-	.otherwise('/')		
+	.otherwise('/')
+
+	// To not prefix URL's with #
+	$locationProvider.html5Mode({
+		enabled: true,
+		requireBase: false
+	});		
 })
