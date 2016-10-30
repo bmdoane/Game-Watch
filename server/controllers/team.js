@@ -7,26 +7,35 @@ const dotenv = require('dotenv')
 const { MYSPORTSFEEDSSCHEDULE_URL } = process.env
 
 
-module.exports.getTeamSchedule = (req, res) => {
+const getTeamSeason = (arr, value) => {
+  let teamSeason = []
+
+  arr.forEach((obj) => {
+  	if (obj.awayTeam.ID === value.toString() || obj.homeTeam.ID === value.toString()) {
+  		teamSeason.push(obj)
+  	} 
+  })
+	console.log("teamSeason", teamSeason)
+  return teamSeason? teamSeason[0] : null // or undefined
+}
+
+module.exports.getTeamData = (req, res) => {
 	get(MYSPORTSFEEDSSCHEDULE_URL, (err, res, body) => {
 		let teamSchedule = []
 		let allScheduleInfo = JSON.parse(body),
 		{ fullgameschedule } = allScheduleInfo,
-		{ lastUpdatedOn, gameentry } = fullgameschedule  // gameentry.length = 256
+		{ lastUpdatedOn, gameentry } = fullgameschedule, // gameentry.length = 256
+		games = gameentry
 
-		let filterByTeam = (obj) => {
-				if (obj.awayTeam.ID === "69" || obj.homeTeam.ID === "69") {
-					return true
-				} 
-		}
-
-		let newList = gameentry.filter(filterByTeam)
-		console.log("newList", newList);
-	
-
-})
+		// How do I call this - may have to return gameentry obj out of this func
+		getTeamSeason(games, 80)
+	})
 }
 
-module.exports.addTeamToUserFunc = (req, res) => {
-	
+module.exports.postTeamToUser = (req, res) => {
+	// Need to affix team id to teams
+	// Click on add button/link
+	// team id given as 2nd arg to getSeason()
+	// getTeamData()
+	// 
 } 

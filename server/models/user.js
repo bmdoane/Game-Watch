@@ -20,7 +20,13 @@ module.exports = mongoose.model('User', {
 			// required: true
 		},
 		phoneNumber: String,
+		// This is the info, not necessarily best way to handle it
 		teamId: String,
+		teamName: String,
+		gameTimes: [String],
+		gameDates: [String],
+		opponents: [String],
 		textTime: String,
-		textDate: [String]
+		// Same info as gameDates
+		textDates: [String]
 })
