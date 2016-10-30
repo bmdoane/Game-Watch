@@ -3,9 +3,10 @@
 const { Router } = require('express')
 const router = Router()
 
-const { getTeamScheduleFunc, addTeamToUserFunc } = require('../controllers/team')
+const { getTeamData, postTeamToUser } = require('../controllers/team')
 
-// router.get(MYSPORTSFEEDSSCHEDULE_URL, getTeamScheduleFunc)
-// router.post('/api/user/:id', addTeamToUserFunc)
+router.get('/exApi/getTeamData', getTeamData)
+// To add team to user via team.html link
+router.post('/api/user/:id/team', postTeamToUser)
 
 module.exports = router
