@@ -8,9 +8,8 @@ const app = express()
 const PORT = process.env.PORT || 3000
 const User = require('./models/user')
 // API key protection
-const dotenv = require('dotenv')
-dotenv.load()
-const MYSPORTSFEEDSSCHEDULE_URL = process.env.MYSPORTSFEEDSSCHEDULE_URL
+const dotenv = require('dotenv').config()
+// dotenv.load()
 
 const MONGODB_URL = process.env.MONGODB_URL || 'mongodb://localhost:27017/gamewatch'
 
@@ -92,11 +91,6 @@ app.put('/api/updateUser/:id', (req, res, err) => {
 			res.json(user)
 		})
 })
-
-// This logs mysports object
-// request(MYSPORTSFEEDSSCHEDULE_URL, (err, res, body) => {
-// 	console.log("req.SPORTS", body);
-// })
 
 mongoose.Promise = Promise
 mongoose.connect(MONGODB_URL, () =>

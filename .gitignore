@@ -2,3 +2,4 @@ node_modules
 jspm_packages
 client/lib
 .env
+server/mySportsFeeds-getter.js

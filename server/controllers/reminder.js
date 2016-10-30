@@ -7,7 +7,8 @@ module.exports.getReminder = (req, res) => {
   User
   	.findById(req.params.userId)
   	.then((user) => {
-  		res.json(user.reminders)
+      console.log("user", user)
+  		res.json(user)
   	})
 }
 
@@ -15,7 +16,7 @@ module.exports.getReminder = (req, res) => {
 module.exports.createReminder = (req, res) => {
 	//console.log("2req.params.userId", req.params.userId);
   User
-    .findOneAndUpdate({_id: req.params.userId}, {$set: {reminders: {textTime: req.body.textTime, textDate: req.body.textDate}}}, {upsert: true}, (err, newReminder) => {
+    .findOneAndUpdate({_id: req.params.userId}, {$set: {textTime: req.body.textTime, textDate: req.body.textDate}}, {upsert: true}, (err, newReminder) => {
         if(err) {
           console.log('Error occurred in creating reminder')
         } else {
@@ -23,39 +24,7 @@ module.exports.createReminder = (req, res) => {
           res.sendStatus(204)
         }
       })  
-}
-
-  // User
- //   .findById(req.params.userId)
- //   .then((user) => {
- //     console.log("user1", user)
- //      .create(user.reminders, (err, reminder) => {
- //        if(err) {
- //          res.send('error saving book')
- //        } else {
- //          console.log(reminder)
- //          res.send(reminder)
- //        }
- //      })
- //    })
-
-        // What does create return??
-
-  // User
-  //   .findById(req.params.userId)
-  //   .then((user) => {
-  //     console.log("user1", user)
-  //     user.reminders
-  //       .create({}, (err, reminder) => {
-  //         if(err) {
-  //           res.send('error saving book')
-  //         } else {
-  //           console.log(reminder)
-  //           res.send(reminder)
-  //         }
-  //       })
-  //       // What does create return??
-  //   })    
+}   
 
 // Working
 module.exports.deleteReminder = (req, res) => {
