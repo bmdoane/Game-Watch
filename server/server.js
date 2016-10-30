@@ -4,20 +4,20 @@ const express = require('express')
 const request = require('request')
 const mongoose = require('mongoose')
 const { json, urlencoded } = require('body-parser')
-const app = express()
-const PORT = process.env.PORT || 3000
 const User = require('./models/user')
 // API key protection
 const dotenv = require('dotenv').config()
 // dotenv.load()
-
-const MONGODB_URL = process.env.MONGODB_URL || 'mongodb://localhost:27017/gamewatch'
-
 const routes = require('./routes/')
+const { connect } = require('./db/database')
+
+// Instatiate app
+const app = express()
+const PORT = process.env.PORT || 3000
+app.set('PORT', PORT)
 
 // Probably going to move this out - test works
 // const { sendSms } = require('./twilioUser')
-
 
 // Middlewares
 app.use(express.static('client'))
@@ -92,7 +92,11 @@ app.put('/api/updateUser/:id', (req, res, err) => {
 		})
 })
 
-mongoose.Promise = Promise
-mongoose.connect(MONGODB_URL, () =>
-	app.listen(PORT, () => console.log(`Listening on port: ${PORT}`))
-)
+// Listen
+connect()
+	.then(() =>
+		app.listen(PORT, () => 
+			console.log(`Listening on port: ${PORT}`)
+		)
+	)
+	.catch(console.error)
