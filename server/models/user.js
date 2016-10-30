@@ -20,9 +20,7 @@ module.exports = mongoose.model('User', {
 			// required: true
 		},
 		phoneNumber: String,
-		teamsId: [String],
-		reminders: [{
-			textTime: String,
-			textDate: [String]
-		}]
+		teamId: String,
+		textTime: String,
+		textDate: [String]
 })
