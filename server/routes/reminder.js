@@ -7,9 +7,9 @@ const { getReminder, createReminder, deleteReminder, updateReminder } = require(
 
 // Done
 router.get('/api/user/:userId/reminders', getReminder)
-// Todo
-router.post('/api/user/:userId/reminders/create', createReminder)
 router.get('/api/user/:userId/reminders/:reminderId/delete', deleteReminder)
+// Todo
+router.put('/api/user/:userId/reminders/create', createReminder)
 router.put('/api/user/:userId/reminders/update', updateReminder)
 
 module.exports = router
