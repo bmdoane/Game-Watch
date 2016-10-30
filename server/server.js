@@ -3,7 +3,7 @@
 const express = require('express')
 const request = require('request')
 const mongoose = require('mongoose')
-const { json } = require('body-parser')
+const { json, urlencoded } = require('body-parser')
 const app = express()
 const PORT = process.env.PORT || 3000
 const User = require('./models/user')
@@ -22,6 +22,8 @@ const routes = require('./routes/')
 
 // Middlewares
 app.use(express.static('client'))
+// Listens for form data and renders req.body object
+app.use(urlencoded({ extended: false }))
 app.use(json())
 
 // Routes
