@@ -19,7 +19,7 @@ module.exports = mongoose.model('User', {
 			type: String
 			// required: true
 		},
-		phoneNumber: String,
+		mobile: String,
 		// This is the info, not necessarily best way to handle it
 		teamId: String,
 		teamName: String,

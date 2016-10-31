@@ -3,8 +3,8 @@
 const { Router } = require('express')
 const router = Router()
 
-const { regFunc } = require('../controllers/register')
+const { userRegister } = require('../controllers/register')
 
-// router.post('/register', registerFunc)
+router.post('/register', userRegister)
 
 module.exports = router
