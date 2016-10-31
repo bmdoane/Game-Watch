@@ -1,6 +1,9 @@
 'use strict'
 
 const express = require('express')
+const session = require('express-session')
+const RedisStore = require('connect-redis')(session)
+// const bcrypt = require('bcrypt')
 const request = require('request')
 const mongoose = require('mongoose')
 const { json, urlencoded } = require('body-parser')
@@ -20,6 +23,18 @@ app.set('PORT', PORT)
 // const { sendSms } = require('./twilioUser')
 
 // Middlewares
+app.use(session({
+	store: new RedisStore({
+    url: process.env.REDIS_URL || "redis://localhost:6379"
+  }),
+	secret: 'gamewatchsecret'
+}))
+
+app.use((req, res, next) => {
+	app.locals.username = req.session && req.session.username
+	next()
+})
+
 app.use(express.static('client'))
 // Listens for form data and renders req.body object
 app.use(urlencoded({ extended: false }))
