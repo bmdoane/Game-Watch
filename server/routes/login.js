@@ -1,8 +1,8 @@
 'use strict'
 
 const router = require('express').Router()
-const { loginFunc } = require('../controllers/login')
+const logCtrl = require('../controllers/login')
 
-// router.get('/login', loginFunc)
+router.post('/api/login', logCtrl.userLogin)
 
 module.exports = router

@@ -5,7 +5,7 @@ const router = Router()
 
 const { getTeamData, postTeamToUser } = require('../controllers/team')
 
-router.get('/exApi/getTeamData', getTeamData)
+router.get('/exApi/getTeamData/:teamId', getTeamData)
 // To add team to user via team.html link
 router.post('/api/user/:id/team', postTeamToUser)
 

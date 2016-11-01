@@ -20,6 +20,7 @@ const getTeamSeason = (arr, value) => {
 }
 
 module.exports.getTeamData = (req, res) => {
+	let teamId = req.params.teamId
 	get(MYSPORTSFEEDSSCHEDULE_URL, (err, res, body) => {
 		let teamSchedule = []
 		let allScheduleInfo = JSON.parse(body),
@@ -28,14 +29,11 @@ module.exports.getTeamData = (req, res) => {
 		games = gameentry
 
 		// How do I call this - may have to return gameentry obj out of this func
-		getTeamSeason(games, 80)
+		let userTeamSeason = getTeamSeason(games, teamId) // 
+		res.json(userTeamSeason)
 	})
 }
 
 module.exports.postTeamToUser = (req, res) => {
-	// Need to affix team id to teams
-	// Click on add button/link
-	// team id given as 2nd arg to getSeason()
-	// getTeamData()
-	// 
+	// Just Id
 } 

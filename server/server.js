@@ -1,6 +1,9 @@
 'use strict'
 
 const express = require('express')
+const session = require('express-session')
+const RedisStore = require('connect-redis')(session)
+// const bcrypt = require('bcrypt')
 const request = require('request')
 const mongoose = require('mongoose')
 const { json, urlencoded } = require('body-parser')
@@ -20,6 +23,20 @@ app.set('PORT', PORT)
 // const { sendSms } = require('./twilioUser')
 
 // Middlewares
+app.use(session({
+	store: new RedisStore({
+    url: process.env.REDIS_URL || "redis://localhost:6379",
+  }),
+	secret: 'gamewatchsecret',
+  resave: false,
+  saveUninitialized: true
+}))
+
+app.use((req, res, next) => {
+	app.locals.email = req.session && req.session.email
+	next()
+})
+
 app.use(express.static('client'))
 // Listens for form data and renders req.body object
 app.use(urlencoded({ extended: false }))
@@ -91,6 +108,15 @@ app.put('/api/updateUser/:id', (req, res, err) => {
 			res.json(user)
 		})
 })
+
+app.use('/api', (req, res) =>
+  res.status(404).send({ code: 404, status: 'Not Found' })
+)
+
+// Refresh with html5 routing
+app.use((req, res) =>
+  res.sendFile(process.cwd() + '/client/index.html')
+)
 
 // Listen
 connect()
