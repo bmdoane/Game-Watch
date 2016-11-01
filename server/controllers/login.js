@@ -7,6 +7,7 @@ module.exports.userLogin = (req, res, err) => {
     .then((user) => {
       if (user) {
         if (user.password === req.body.password) {
+          console.log("you are logged in!")
           req.session.user = user
           res.json(user)
         } else {

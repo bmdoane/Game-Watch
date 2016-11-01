@@ -25,13 +25,15 @@ app.set('PORT', PORT)
 // Middlewares
 app.use(session({
 	store: new RedisStore({
-    url: process.env.REDIS_URL || "redis://localhost:6379"
+    url: process.env.REDIS_URL || "redis://localhost:6379",
   }),
-	secret: 'gamewatchsecret'
+	secret: 'gamewatchsecret',
+  resave: false,
+  saveUninitialized: true
 }))
 
 app.use((req, res, next) => {
-	app.locals.username = req.session && req.session.username
+	app.locals.email = req.session && req.session.email
 	next()
 })
 
@@ -106,6 +108,15 @@ app.put('/api/updateUser/:id', (req, res, err) => {
 			res.json(user)
 		})
 })
+
+app.use('/api', (req, res) =>
+  res.status(404).send({ code: 404, status: 'Not Found' })
+)
+
+// Refresh with html5 routing
+app.use((req, res) =>
+  res.sendFile(process.cwd() + '/client/index.html')
+)
 
 // Listen
 connect()

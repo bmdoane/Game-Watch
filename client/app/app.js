@@ -15,7 +15,7 @@ app.config(function($routeProvider, $locationProvider) {
 	})	
 	.when('/myTeam', {
 		templateUrl: 'partials/myTeam.html',
-		controller: 'RegisterCtrl'
+		controller: 'MyTeamCtrl'
 	})	
 	.when('/nfl', {
 		templateUrl: 'partials/nfl.html',

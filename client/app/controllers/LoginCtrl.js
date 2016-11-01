@@ -9,9 +9,12 @@ app.controller('LoginCtrl', function($scope, $http, $location){
 			password: $scope.password
 		}
 
-		// Post to backend
+		// Post to match server route
+		// Posting route not returning promise - post should not return anything
+		// How do I resolve the promise??
 		$http.post('/api/login', user)
 			.then(() => {
+				console.log("this should fire")
 				$location.path('/myTeam')
 			})
 	}
