@@ -5,7 +5,7 @@ const session = require('express-session')
 const RedisStore = require('connect-redis')(session)
 const request = require('request')
 const mongoose = require('mongoose')
-const { json } = require('body-parser')
+const { json, urlencoded } = require('body-parser')
 const User = require('./models/user')
 // API key protection
 const dotenv = require('dotenv').config()
@@ -38,7 +38,7 @@ app.use((req, res, next) => {
 
 app.use(express.static('client'))
 // Listens for form data and renders req.body object
-// app.use(urlencoded({ extended: false }))
+app.use(urlencoded({ extended: false }))
 app.use(json())
 
 // Routes
