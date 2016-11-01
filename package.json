@@ -1,9 +1,14 @@
 {
   "name": "Game-Watch",
   "version": "1.0.0",
-  "description": "",
+  "description": "Game Watch, don't miss your favorite team's game",
   "main": "server/server.js",
+  "engines": {
+    "node": "6"
+  },  
   "scripts": {
+    "deploy": "git push heroku master",
+    "postinstall": "bower install",    
     "start": "node server/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
