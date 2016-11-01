@@ -8,7 +8,8 @@ const mongoose = require('mongoose')
 const { json, urlencoded } = require('body-parser')
 const User = require('./models/user')
 // API key protection
-const dotenv = require('dotenv').config()
+// Heroku not using this!
+// const dotenv = require('dotenv').config()
 // dotenv.load()
 const routes = require('./routes/')
 const { connect } = require('./db/database')

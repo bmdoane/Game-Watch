@@ -3,7 +3,8 @@
 const User = require('../models/user')
 const mongoose = require('mongoose')
 const { get } = require('request')
-const dotenv = require('dotenv')
+// Heroku deployment interferes with use of dotenv
+// const dotenv = require('dotenv')
 const { MYSPORTSFEEDSSCHEDULE_URL } = process.env
 
 
