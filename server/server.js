@@ -9,7 +9,7 @@ const { json, urlencoded } = require('body-parser')
 const User = require('./models/user')
 // API key protection
 // Heroku not using this!
-// const dotenv = require('dotenv').config()
+const dotenv = require('dotenv').config()
 // dotenv.load()
 const routes = require('./routes/')
 const { connect } = require('./db/database')

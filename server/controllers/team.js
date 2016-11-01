@@ -4,9 +4,10 @@ const User = require('../models/user')
 const mongoose = require('mongoose')
 const { get } = require('request')
 // Heroku deployment interferes with use of dotenv
-// const dotenv = require('dotenv')
+const dotenv = require('dotenv')
 // This now happens through Heroku
 const { MYSPORTSFEEDSSCHEDULE_URL } = process.env
+console.log("MYSPORTSFEEDSSCHEDULE_URL", MYSPORTSFEEDSSCHEDULE_URL);
 
 
 const getTeamSeason = (arr, value) => {
