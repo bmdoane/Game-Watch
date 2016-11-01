@@ -5,6 +5,7 @@ const mongoose = require('mongoose')
 const { get } = require('request')
 // Heroku deployment interferes with use of dotenv
 // const dotenv = require('dotenv')
+// This now happens through Heroku
 const { MYSPORTSFEEDSSCHEDULE_URL } = process.env
 
 

@@ -16,6 +16,7 @@ const { connect } = require('./db/database')
 
 // Instatiate app
 const app = express()
+// PORT comes from Heroku when deployed
 const PORT = process.env.PORT || 3000
 app.set('PORT', PORT)
 
