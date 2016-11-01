@@ -3,7 +3,6 @@
 const express = require('express')
 const session = require('express-session')
 const RedisStore = require('connect-redis')(session)
-// const bcrypt = require('bcrypt')
 const request = require('request')
 const mongoose = require('mongoose')
 const { json, urlencoded } = require('body-parser')
