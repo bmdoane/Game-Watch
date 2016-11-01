@@ -2,18 +2,37 @@
   <div class="nav-wrapper">
     <div class="container">
       <a href="#" class="brand-logo">Game Watch</a>
-      <ul class="right hide-on-med-and-down">
-        <!-- Remove the login link when built out-->
-        <li><a ng-href="/">Login</a></li>
-        <!-- Make register conditional to only login view -->
-        <li><a ng-href="/register">Register</a></li>
-        <li><a ng-href="/myTeam">MyTeams</a></li>
-        <li><a ng-href="/reminder">Reminders</a></li>
-        <li><a ng-href="/nfl">NFL</a></li>
-        <li><a ng-href="/team">Team</a></li>
-        <!-- Make logout conditional to after user is logged in -->
-        <li><a href="/" ng-click="logout()">Logout</a></li>
-      </ul>  
+      <div ng-show="!loginLink()">
+        <ul class="right hide-on-med-and-down">
+          <span ng-show="registerLink()">
+            <li><a ng-href="/">Login</a></li>
+          </span>        
+          <span ng-show="myTeamLink()">
+            <li><a ng-href="/reminder">Reminders</a></li>
+            <li><a ng-href="/nfl">NFL</a></li>
+            <li><a ng-href="/team">Team</a></li>
+            <li><a href="/" ng-click="logout()">Logout</a></li>
+          </span>
+          <span ng-show="reminderLink()">
+            <li><a ng-href="/myTeam">MyTeams</a></li>
+            <li><a ng-href="/nfl">NFL</a></li>
+            <li><a ng-href="/team">Team</a></li>
+            <li><a href="/" ng-click="logout()">Logout</a></li>
+          </span>
+          <span ng-show="nflLink()">
+            <li><a ng-href="/myTeam">MyTeams</a></li>
+            <li><a ng-href="/reminder">Reminders</a></li>
+            <li><a ng-href="/team">Team</a></li>
+            <li><a href="/" ng-click="logout()">Logout</a></li>             
+          </span> 
+          <span ng-show="teamLink()">
+            <li><a ng-href="/myTeam">MyTeams</a></li>
+            <li><a ng-href="/reminder">Reminders</a></li>
+            <li><a ng-href="/nfl">NFL</a></li>
+            <li><a href="/" ng-click="logout()">Logout</a></li>
+          </span>               
+        </ul>
+      </div> 
     </div>
   </div>
 </nav>
