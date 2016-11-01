@@ -7,8 +7,7 @@
     "node": "6"
   },  
   "scripts": {
-    "deploy": "git push heroku master",
-    "postinstall": "bower install",    
+    "deploy": "git push heroku master",    
     "start": "node server/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
