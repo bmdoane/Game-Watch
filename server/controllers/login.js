@@ -12,6 +12,7 @@ module.exports.userLogin = (req, res, err) => {
             if(err) {
               reject(err)
             } else {
+              req.session.email = user.email
               resolve(matches)
             }
           })
@@ -22,7 +23,7 @@ module.exports.userLogin = (req, res, err) => {
     })
     .then((matches) => {
       if (matches) {
-        req.session.email = user.email
+        res.json(matches)
       } else {
         console.log("Email does not exist")
       }
