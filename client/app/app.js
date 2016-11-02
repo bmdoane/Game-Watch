@@ -25,15 +25,15 @@ app.config(function($routeProvider, $locationProvider) {
 		templateUrl: 'partials/reminder.html',
 		controller: 'ReminderCtrl'
 	})			
-	.when('/team', {
+	.when('/team/:tid', {
 		templateUrl: 'partials/team.html',
 		controller: 'TeamCtrl'
 	})
 	.otherwise('/')
 
 	// To not prefix URL's with #
-	$locationProvider.html5Mode({
-		enabled: true,
-		requireBase: false
-	})		
+	// $locationProvider.html5Mode({
+	// 	enabled: true,
+	// 	requireBase: false
+	// })		
 })

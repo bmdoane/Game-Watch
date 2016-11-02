@@ -10,20 +10,20 @@ const { MYSPORTSFEEDSSCHEDULE_URL } = process.env
 
 
 const getTeamSeason = (arr, value) => {
-  let teamSeason = []
+  let season = []
 
   arr.forEach((obj) => {
   	if (obj.awayTeam.ID === value.toString() || obj.homeTeam.ID === value.toString()) {
-  		teamSeason.push(obj)
+  		season.push(obj)
   	} 
   })
-	console.log("teamSeason", teamSeason)
-  return teamSeason? teamSeason[0] : null // or undefined
+	console.log("teamSeason", season)
+  return season? season[0] : null // or undefined
 }
 
 module.exports.getTeamData = (req, res) => {
 	let teamId = req.params.teamId
-	get(MYSPORTSFEEDSSCHEDULE_URL, (err, res, body) => {
+	get(MYSPORTSFEEDSSCHEDULE_URL, (err, response, body) => {
 
 		let allScheduleInfo = JSON.parse(body),
 		{ fullgameschedule } = allScheduleInfo,
@@ -31,9 +31,9 @@ module.exports.getTeamData = (req, res) => {
 		games = gameentry
 
 		// How do I call this - may have to return gameentry obj out of this func
-		let userTeamSeason = getTeamSeason(games, teamId)
+		let teamSeason = getTeamSeason(games, teamId)
 		// Commented out till I use 
-		//res.json(userTeamSeason)
+		res.json(teamSeason)
 	})
 }
 

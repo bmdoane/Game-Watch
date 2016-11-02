@@ -1,4 +1,16 @@
 <div>
 	<div ng-include="'partials/nav.html'"></div>
-	<h1>This is the Team page</h1>	
+	<div class="container">
+		<div id="team">
+			<h2>Interp TeamName's Schedule</h2>
+			<div class="schedule">
+				<p>{{ teamSchedule }}</p>
+			<!-- ng-repeat -->
+				<ul>
+					<li>Date Time awayTeam vs. homeTeam</li>
+				</ul>
+			</div>
+			<a class="waves-effect waves-light btn">Add Team</a>
+		</div>	
+	</div>		
 </div>
