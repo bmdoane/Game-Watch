@@ -17,7 +17,6 @@ const getTeamSeason = (arr, value) => {
   		season.push(obj)
   	} 
   })
-	console.log("teamSeason", season)
   return season? season : null // or undefined
 }
 
@@ -85,8 +84,3 @@ module.exports.getTeamNameData = (req, res) => {
 		res.json(teamNames)
 	})
 }
-
-
-module.exports.postTeamToUser = (req, res) => {
-	// Just Id
-} 

@@ -15,7 +15,7 @@ app.controller('RegisterCtrl', function($scope, $http, $location){
 		// This has to match server route
 		$http.post('/api/register', userModel)
 			.then(() => {
-				$location.path('/myTeam')
+				$location.path('/')
 			})
 	}
 })

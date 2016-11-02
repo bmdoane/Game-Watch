@@ -12,6 +12,9 @@ module.exports.userLogin = (req, res, err) => {
             if(err) {
               reject(err)
             } else {
+              // Putting userID on session to grab for queries
+              console.log("user", user);
+              req.session.uid = user._id
               req.session.email = user.email
               resolve(matches)
             }
