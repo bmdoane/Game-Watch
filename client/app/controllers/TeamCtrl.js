@@ -1,7 +1,7 @@
 'use strict'
 
 app.controller('TeamCtrl', function($scope, TeamsFactory, $routeParams) {
-	console.log("$routeParams.tid", $routeParams.tid);
+	console.log("$routeParams.tid", $routeParams.tid)
 	TeamsFactory.getTeamSchedule($routeParams.tid)
 		.then((scheduleCollection) => {
 			console.log("scheduleCollection", scheduleCollection);

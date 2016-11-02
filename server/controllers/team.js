@@ -18,7 +18,7 @@ const getTeamSeason = (arr, value) => {
   	} 
   })
 	console.log("teamSeason", season)
-  return season? season[0] : null // or undefined
+  return season? season : null // or undefined
 }
 
 module.exports.getTeamData = (req, res) => {

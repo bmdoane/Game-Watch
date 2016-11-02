@@ -1,14 +1,12 @@
 'use strict'
 
-app.factory('TeamsFactory', function($q, $http) {
-
+app.factory('TeamsFactory', function($q, $http, $routeParams) {
 	// Return a team schedule
 	const getTeamSchedule = () => {
 		let teamSchedule = []
 		return $q((resolve,reject) => {
-			$http.get(`/exApi/getTeamData/:teamId`)
+			$http.get(`/exApi/getTeamData/${$routeParams.tid}`)
 			.success((teamObj) => {
-				console.log("teamObj", teamObj);
 				let teamGames = teamObj
 				Object.keys(teamGames).forEach((key) => {
 					teamGames[key].id = key
