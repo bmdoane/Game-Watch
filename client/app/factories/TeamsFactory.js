@@ -39,6 +39,18 @@ app.factory('TeamsFactory', function($q, $http, $routeParams) {
 		})
 	}
 
+	const postTeamToUser = (teamId) => {
+		return $q((resolve, reject) => {
+			$http.post(`/api/addTeam/${teamId}`)
+			.success(() => {
+				resolve()
+			})
+			.error((error) => {
+				reject(error)
+			})
+		})
+	}
+
 	return { getAllTeamNames, getTeamSchedule }
 
 })
