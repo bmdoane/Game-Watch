@@ -115,9 +115,9 @@ app.use('/api', (req, res) =>
 )
 
 // Refresh with html5 routing
-app.use((req, res) =>
-  res.sendFile(process.cwd() + '/client/index.html')
-)
+// app.use((req, res) =>
+//   res.sendFile(process.cwd() + '/client/index.html')
+// )
 
 // Listen
 connect()

@@ -2,47 +2,35 @@
 	<div ng-include="'partials/nav.html'"></div>
 	<div class="container">
 	<!-- Question is to hardcode these links or do a api call -->
-		<div class="NFL">
+		<div id="NFL">
 			<h2>National Football League</h2>
 			<div class="AFL">
 				<h3>American Football Conference</h3>
 				<div class="row">
 					<div class="col sm6">
 						<h4>AFC East</h4>
-						<ul>
-							<li>Buffalo Bills</li>
-							<li>Miami Dolphins</li>
-							<li>New England Patriots</li>
-							<li>New York Jets</li>			
+						<ul ng-repeat="teamName in teamNames" ng-if="$index < 4">
+							<li><a ng-href="/#/team/{{teamName.tid}}/{{teamName.team}}">{{ teamName.team }}</a></li>		
 						</ul>
 					</div>
 					<div class="col sm6">			
 						<h4>AFC North</h4>
-						<ul>
-							<li>Baltimore Ravens</li>
-							<li>Cincinnati Bengals</li>
-							<li>Cleveland Browns</li>			
-							<li>Pittsburgh Steelers</li>
+						<ul ng-repeat="teamName in teamNames" ng-if="$index > 7 && $index < 12">
+							<li><a ng-href="/#/team/{{teamName.tid}}/{{teamName.team}}">{{ teamName.team }}</a></li>						
 						</ul>
 					</div>	
 				</div>	
 				<div class="row">
 					<div class="col sm6">	
 					<h4>AFC South</h4>
-						<ul>
-							<li>Houston Texans</li>
-							<li>Indianapolis Colts</li>
-							<li>Jacksonville Jaguars</li>
-							<li>Tennessee Titans</li>			
+						<ul ng-repeat="teamName in teamNames" ng-if="$index > 15 && $index < 20">
+							<li><a ng-href="/#/team/{{teamName.tid}}/{{teamName.team}}">{{ teamName.team }}</a></li>			
 						</ul>
 					</div>	
 					<div class="col sm6">
 						<h4>AFC West</h4>
-						<ul>
-							<li>Denver Broncos</li>
-							<li>Kansas City Chiefs</li>
-							<li>Oakland Raiders</li>
-							<li>San Diego Chargers</li>			
+						<ul ng-repeat="teamName in teamNames" ng-if="$index > 23 && $index < 28">
+							<li><a ng-href="/#/team/{{teamName.tid}}/{{teamName.team}}">{{ teamName.team }}</a></li>			
 						</ul>
 					</div>	
 				</div>
@@ -52,40 +40,28 @@
 				<div class="row">
 					<div class="col sm6">
 						<h4>NFC East</h4>
-						<ul>
-							<li>Dallas Cowboys</li>
-							<li>New York Giants</li>
-							<li>Philadelphia Eagles</li>
-							<li>Washington Redskins</li>			
+						<ul ng-repeat="teamName in teamNames" ng-if="$index > 3 && $index < 8">
+							<li><a ng-href="/#/team/{{teamName.tid}}/{{teamName.team}}">{{ teamName.team }}</a></li>		
 						</ul>
 					</div>
 					<div class="col sm6">			
 						<h4>NFC North</h4>
-						<ul>
-							<li>Chicago Bears</li>
-							<li>Detroit Lions</li>
-							<li>Green Bay Packers</li>			
-							<li>Minnesota Vikings</li>
+						<ul ng-repeat="teamName in teamNames" ng-if="$index > 11 && $index < 16">
+							<li><a ng-href="/#/team/{{teamName.tid}}/{{teamName.team}}">{{ teamName.team }}</a></li>	
 						</ul>
 					</div>	
 				</div>	
 				<div class="row">
 					<div class="col sm6">	
 					<h4>NFC South</h4>
-						<ul>
-							<li>Atlanta Falcons</li>
-							<li>Carolina Panthers</li>
-							<li>New Orleans Saints</li>
-							<li>Tampa Bay Buccaneers</li>			
+						<ul ng-repeat="teamName in teamNames" ng-if="$index > 19 && $index < 24">
+							<li><a ng-href="/#/team/{{teamName.tid}}/{{teamName.team}}">{{ teamName.team }}</a></li>			
 						</ul>
 					</div>	
 					<div class="col sm6">
 						<h4>NFC West</h4>
-						<ul>
-							<li>Arizona Cardinals</li>
-							<li>Los Angeles Rams</li>
-							<li>San Francisco 49ers</li>
-							<li>Seattle Seahawks</li>			
+						<ul ng-repeat="teamName in teamNames" ng-if="$index > 27 && $index < 32">
+							<li><a ng-href="/#/team/{{teamName.tid}}/{{teamName.team}}">{{ teamName.team }}</a></li>			
 						</ul>
 					</div>	
 				</div>
