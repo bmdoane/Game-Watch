@@ -2,12 +2,12 @@
 	<div ng-include="'partials/nav.html'"></div>
 	<div class="container">
 		<div id="team">
-			<h2>Interp TeamName's Schedule</h2>
+			<!-- Able to parse this from all team data with $routeParams in app.js -->
+			<h2>{{teamName}} Schedule</h2>
 			<div class="schedule">
-				<p>{{ teamSchedule }}</p>
 			<!-- ng-repeat -->
-				<ul>
-					<li>Date Time awayTeam vs. homeTeam</li>
+				<ul ng-repeat="game in schedule">
+					<li>{{ game.date }} - {{ game.time }} - {{ game.awayTeam.Abbreviation }} vs. {{ game.homeTeam.Abbreviation }} at {{ game.location }}</li>
 				</ul>
 			</div>
 			<a class="waves-effect waves-light btn">Add Team</a>

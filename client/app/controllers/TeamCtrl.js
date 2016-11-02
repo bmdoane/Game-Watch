@@ -7,6 +7,8 @@ app.controller('TeamCtrl', function($scope, TeamsFactory, $routeParams) {
 			console.log("scheduleCollection", scheduleCollection);
 			$scope.schedule = scheduleCollection
 		})
+
+		$scope.teamName = $routeParams.teamName
 	// Use route params team/:id in app.js routes
 	// Save id to variable
 	// Will send http.get own route params with :id	

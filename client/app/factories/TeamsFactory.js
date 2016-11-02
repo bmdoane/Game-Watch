@@ -4,7 +4,7 @@ app.factory('TeamsFactory', function($q, $http, $routeParams) {
 	// Return a team schedule
 	const getTeamSchedule = () => {
 		let teamSchedule = []
-		return $q((resolve,reject) => {
+		return $q((resolve, reject) => {
 			$http.get(`/exApi/getTeamData/${$routeParams.tid}`)
 			.success((teamObj) => {
 				let teamGames = teamObj
@@ -23,7 +23,7 @@ app.factory('TeamsFactory', function($q, $http, $routeParams) {
 	// Return all team names
 	const getAllTeamNames = () => {
 		let teamNames = []
-		return $q((resolve,reject) => {
+		return $q((resolve, reject) => {
 			$http.get('/exApi/getTeamNames')
 			.success((teamObj) => {
 				let allTeamNames = teamObj

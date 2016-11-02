@@ -30,9 +30,7 @@ module.exports.getTeamData = (req, res) => {
 		{ lastUpdatedOn, gameentry } = fullgameschedule, // gameentry.length = 256
 		games = gameentry
 
-		// How do I call this - may have to return gameentry obj out of this func
 		let teamSeason = getTeamSeason(games, teamId)
-		// Commented out till I use 
 		res.json(teamSeason)
 	})
 }
@@ -69,7 +67,6 @@ const teamNameData = (arr) => {
   })
 
   for (var i = cities.length - 1; i >= 0; i--) {
-  	// teamNames.push(`${cities[i]} ${names[i]}`)
   	teamNames.push({team: `${cities[i]} ${names[i]}`, tid: `${teamId[i]}`})
   }
 
@@ -85,10 +82,10 @@ module.exports.getTeamNameData = (req, res) => {
 		{ lastUpdatedOn, gameentry } = fullgameschedule,
 		games = gameentry
 		let teamNames = teamNameData(games)
-		// teamNames = JSON.stringify(teamNames)
 		res.json(teamNames)
 	})
 }
+
 
 module.exports.postTeamToUser = (req, res) => {
 	// Just Id

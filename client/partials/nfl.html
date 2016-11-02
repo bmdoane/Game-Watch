@@ -10,13 +10,13 @@
 					<div class="col sm6">
 						<h4>AFC East</h4>
 						<ul ng-repeat="teamName in teamNames" ng-if="$index < 4">
-							<li><a ng-href="/#/team/{{teamName.tid}}">{{ teamName.team }}</a></li>		
+							<li><a ng-href="/#/team/{{teamName.tid}}/{{teamName.team}}">{{ teamName.team }}</a></li>		
 						</ul>
 					</div>
 					<div class="col sm6">			
 						<h4>AFC North</h4>
 						<ul ng-repeat="teamName in teamNames" ng-if="$index > 7 && $index < 12">
-							<li><a ng-href="/#/team/{{teamName.tid}}">{{ teamName.team }}</a></li>						
+							<li><a ng-href="/#/team/{{teamName.tid}}/{{teamName.team}}">{{ teamName.team }}</a></li>						
 						</ul>
 					</div>	
 				</div>	
@@ -24,13 +24,13 @@
 					<div class="col sm6">	
 					<h4>AFC South</h4>
 						<ul ng-repeat="teamName in teamNames" ng-if="$index > 15 && $index < 20">
-							<li><a ng-href="/#/team/{{teamName.tid}}">{{ teamName.team }}</a></li>			
+							<li><a ng-href="/#/team/{{teamName.tid}}/{{teamName.team}}">{{ teamName.team }}</a></li>			
 						</ul>
 					</div>	
 					<div class="col sm6">
 						<h4>AFC West</h4>
 						<ul ng-repeat="teamName in teamNames" ng-if="$index > 23 && $index < 28">
-							<li><a ng-href="/#/team/{{teamName.tid}}">{{ teamName.team }}</a></li>			
+							<li><a ng-href="/#/team/{{teamName.tid}}/{{teamName.team}}">{{ teamName.team }}</a></li>			
 						</ul>
 					</div>	
 				</div>
@@ -41,13 +41,13 @@
 					<div class="col sm6">
 						<h4>NFC East</h4>
 						<ul ng-repeat="teamName in teamNames" ng-if="$index > 3 && $index < 8">
-							<li><a ng-href="/#/team/{{teamName.tid}}">{{ teamName.team }}</a></li>		
+							<li><a ng-href="/#/team/{{teamName.tid}}/{{teamName.team}}">{{ teamName.team }}</a></li>		
 						</ul>
 					</div>
 					<div class="col sm6">			
 						<h4>NFC North</h4>
 						<ul ng-repeat="teamName in teamNames" ng-if="$index > 11 && $index < 16">
-							<li><a ng-href="/#/team/{{teamName.tid}}">{{ teamName.team }}</a></li>	
+							<li><a ng-href="/#/team/{{teamName.tid}}/{{teamName.team}}">{{ teamName.team }}</a></li>	
 						</ul>
 					</div>	
 				</div>	
@@ -55,13 +55,13 @@
 					<div class="col sm6">	
 					<h4>NFC South</h4>
 						<ul ng-repeat="teamName in teamNames" ng-if="$index > 19 && $index < 24">
-							<li><a ng-href="/#/team/{{teamName.tid}}">{{ teamName.team }}</a></li>			
+							<li><a ng-href="/#/team/{{teamName.tid}}/{{teamName.team}}">{{ teamName.team }}</a></li>			
 						</ul>
 					</div>	
 					<div class="col sm6">
 						<h4>NFC West</h4>
 						<ul ng-repeat="teamName in teamNames" ng-if="$index > 27 && $index < 32">
-							<li><a ng-href="/#/team/{{teamName.tid}}">{{ teamName.team }}</a></li>			
+							<li><a ng-href="/#/team/{{teamName.tid}}/{{teamName.team}}">{{ teamName.team }}</a></li>			
 						</ul>
 					</div>	
 				</div>

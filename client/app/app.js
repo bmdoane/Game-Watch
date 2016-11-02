@@ -25,7 +25,7 @@ app.config(function($routeProvider, $locationProvider) {
 		templateUrl: 'partials/reminder.html',
 		controller: 'ReminderCtrl'
 	})			
-	.when('/team/:tid', {
+	.when('/team/:tid/:teamName', {
 		templateUrl: 'partials/team.html',
 		controller: 'TeamCtrl'
 	})
