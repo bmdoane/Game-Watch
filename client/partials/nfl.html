@@ -9,11 +9,12 @@
 				<div class="row">
 					<div class="col sm6">
 						<h4>AFC East</h4>
-						<ul>
-							<li>Buffalo Bills</li>
+						<ul ng-repeat="teamName in teamNames track by $index">
+							<li>{{teamName.team}}</li>
+<!-- 							<li>Buffalo Bills</li>
 							<li>Miami Dolphins</li>
 							<li>New England Patriots</li>
-							<li>New York Jets</li>			
+							<li>New York Jets</li> -->			
 						</ul>
 					</div>
 					<div class="col sm6">			

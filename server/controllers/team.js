@@ -85,7 +85,7 @@ module.exports.getTeamNameData = (req, res) => {
 		{ lastUpdatedOn, gameentry } = fullgameschedule,
 		games = gameentry
 		let teamNames = teamNameData(games)
-		teamNames = JSON.stringify(teamNames)
+		// teamNames = JSON.stringify(teamNames)
 		res.json(teamNames)
 	})
 }
