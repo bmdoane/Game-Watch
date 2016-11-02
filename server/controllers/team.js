@@ -70,7 +70,7 @@ const teamNameData = (arr) => {
 
   for (var i = cities.length - 1; i >= 0; i--) {
   	// teamNames.push(`${cities[i]} ${names[i]}`)
-  	teamNames.push({team: `${cities[i]} ${names[i]}`, id: `${teamId[i]}`})
+  	teamNames.push({team: `${cities[i]} ${names[i]}`, tid: `${teamId[i]}`})
   }
 
   return teamNames? teamNames : null 

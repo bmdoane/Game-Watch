@@ -27,9 +27,12 @@ app.factory('TeamsFactory', function($q, $http) {
 		return $q((resolve,reject) => {
 			$http.get('/exApi/getTeamNames')
 			.success((teamObj) => {
-				console.log("teamObj", teamObj)
 				let allTeamNames = teamObj
-				resolve(allTeamNames)
+				Object.keys(allTeamNames).forEach((key) => {
+					allTeamNames[key].id = key
+					teamNames.push(allTeamNames[key])
+				})
+				resolve(teamNames)
 			})
 			.error((error) => {
 				reject(error)
