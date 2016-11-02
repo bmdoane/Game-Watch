@@ -39,11 +39,12 @@ app.factory('TeamsFactory', function($q, $http, $routeParams) {
 		})
 	}
 
-	const postTeamToUser = (teamId) => {
+	const updateTeamToUser = (teamId) => {
 		return $q((resolve, reject) => {
-			$http.post(`/api/addTeam/${teamId}`)
-			.success(() => {
-				resolve()
+			$http.put(`/api/updateUser/${teamId}`)
+			// User comes from API
+			.success((user) => {
+				resolve(user)
 			})
 			.error((error) => {
 				reject(error)
@@ -51,6 +52,6 @@ app.factory('TeamsFactory', function($q, $http, $routeParams) {
 		})
 	}
 
-	return { getAllTeamNames, getTeamSchedule }
+	return { getAllTeamNames, getTeamSchedule, updateTeamToUser }
 
 })

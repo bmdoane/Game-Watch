@@ -75,8 +75,6 @@ app.get('/api/getUser/:id', (req, res, err) => {
 // Delete User in MongoDB
 app.get('/api/deleteUser/:id', (req, res, err) => {
 	// Testing in Postman with - localhost:3000/api/deleteUser/580e2d78f9ba2d77549e62b9  (id of user in mongoDB)
-	// console.log("req", req);
-	// console.log("Dreq.body", req.params.id);
 	let userId = {
 		_id: req.params.id
 	}
@@ -92,18 +90,19 @@ app.get('/api/deleteUser/:id', (req, res, err) => {
 })
 
 // Update User in MongoDB
-app.put('/api/updateUser/:id', (req, res, err) => {
+app.put('/api/updateUser/:teamId', (req, res, err) => {
 	let userId = {
-		_id: req.params.id
+		_id: req.session.uid
 	}
+	let teamId = req.params.teamId
+	console.log("userId", userId)
+	console.log("teamId", teamId)
+		// Investigate $push - {$push {teams: team}} for mulitple
 	User
 		.findOneAndUpdate(userId, { $set: {
-			username: req.body.username,
-			teams: [req.body.teams]
-			// Investigate $push - {$push {teams: team}} for mulitple
-			// Would also need to look at deleting certain teams
-		}})
-		.then(console.log("Updated req.body", req.body))
+			teamId: teamId
+		}}, {upsert:true, new: true})
+		// This should return the updated user
 		.then((user) => {
 			console.log("Updated user", user)
 			res.json(user)

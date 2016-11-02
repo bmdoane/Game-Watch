@@ -6,11 +6,14 @@ app.controller('TeamCtrl', function($scope, TeamsFactory, $routeParams, $locatio
 
 	TeamsFactory.getTeamSchedule($routeParams.tid)
 		.then((scheduleCollection) => {
-			console.log("scheduleCollection", scheduleCollection);
 			$scope.schedule = scheduleCollection
 		})
 
 	$scope.addTeamToUser = () => {
+		TeamsFactory.updateTeamToUser($routeParams.tid)
+		.then((userObj) => {
+			console.log("userObj", userObj)
+		})
 		// $location.url('/myTeam')
 	}
 	

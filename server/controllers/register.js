@@ -10,7 +10,6 @@ module.exports.userRegister = (req, res, err) => {
         console.log("User exists")
       } else {
         return new Promise((resolve, reject) => {
-          console.log("fuck")
           console.log("req.body", req.body);
           // Promise makes sure this resolves before user is created
           bcrypt.hash(req.body.password, 10, (err, hash) => {

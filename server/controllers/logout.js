@@ -8,4 +8,5 @@ module.exports.userLogout = (req, res, err) => {
     if (err) throw err
   })
   console.log("After", req.session)
+  res.json('loggedout')
 }
