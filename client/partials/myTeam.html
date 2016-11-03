@@ -1,6 +1,15 @@
 <div>
 	<div ng-include="'partials/nav.html'"></div>
 	<div class="container">
-		<h3>Welcome, {{ user.userName }}!</h3>
+		<div class="head">
+			<h3>Welcome, {{ user.userName }}!</h3>
+			<h5>Account mobile: {{ user.mobile }}</h5>
+			<h5>Your Team: {{ urCity }} {{ urTeam }}</h5>
+		</div>
+		<div class="myTeamBody">
+				<ul ng-repeat="wk in team" ng-if="wk.date >= today">
+					<li>{{ wk.date }} - {{ wk.time }} - {{ wk.awayTeam.Abbreviation }} vs. {{ wk.homeTeam.Abbreviation }} at {{ wk.location }}</li>
+				</ul>			
+		</div>
 	</div>	
 </div>
