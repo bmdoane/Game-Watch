@@ -15,6 +15,5 @@ app.controller('NflCtrl', function($scope, TeamsFactory) {
 			}
 			nameCollection = nameCollection.sort(compare)
 			$scope.teamNames = nameCollection
-			console.log("teamNames", $scope.teamNames);
 		})		
 })
