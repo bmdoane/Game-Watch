@@ -16,6 +16,8 @@ module.exports.userLogin = (req, res, err) => {
               console.log("user", user);
               req.session.uid = user._id
               req.session.email = user.email
+              console.log("req.session.uid", req.session.uid)
+              console.log("req.session.email", req.session.email)
               resolve(matches)
             }
           })

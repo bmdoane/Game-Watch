@@ -1,6 +1,11 @@
 'use strict'
 
-app.controller('MyTeamCtrl', function($scope) {
-	console.log("Can you hear MyTeam?")
-	// Need to pull the team name and ID here for ng-repeat	
+app.controller('MyTeamCtrl', function($scope, UserFactory) {
+
+	UserFactory.getUserInfo()
+	.then((userInfo) => {
+		console.log("userInfo.data", userInfo.data)
+		$scope.user = userInfo.data
+	})
+
 })

@@ -14,7 +14,6 @@ app.controller('LoginCtrl', function($scope, $http, $location){
 		// How do I resolve the promise??
 		$http.post('/api/login', user)
 			.then(() => {
-				console.log("this should fire")
 				$location.path('/myTeam')
 			})
 	}

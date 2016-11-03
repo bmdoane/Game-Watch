@@ -60,17 +60,17 @@ app.post('/api/newUser', (req, res, err) => {
 })
 
 // Read User in MongoDB
-app.get('/api/getUser/:id', (req, res, err) => {
-	let userId = req.params.id
+// app.get('/api/getUser/:id', (req, res, err) => {
+// 	let userId = req.params.id
 
-	User
-		.findById(userId)
-		.then((user) => {
-			console.log("Got user", user);
-			res.json(user)
-		})
-		.catch(err)
-})
+// 	User
+// 		.findById(userId)
+// 		.then((user) => {
+// 			console.log("Got user", user);
+// 			res.json(user)
+// 		})
+// 		.catch(err)
+// })
 
 // Delete User in MongoDB
 app.get('/api/deleteUser/:id', (req, res, err) => {
