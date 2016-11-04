@@ -7,6 +7,7 @@ const request = require('request')
 const mongoose = require('mongoose')
 const { json } = require('body-parser')
 const User = require('./models/user')
+const { reminderJob } = require('./utilities/chron')
 // API key protection
 // Heroku not using this!
 const dotenv = require('dotenv').config()
@@ -20,8 +21,6 @@ const app = express()
 const PORT = process.env.PORT || 3000
 app.set('PORT', PORT)
 
-// Probably going to move this out - test works
-// const { sendSms } = require('./twilioUser')
 
 // Middlewares
 app.use(session({
@@ -46,13 +45,8 @@ app.use(json())
 // Routes
 app.use(routes)
 
-// How can I send this for test
-// app.use(sendSMS)
-
 // Create User in MongoDB
 app.post('/api/newUser', (req, res, err) => {
-	// This was thrown in to test twilio text to phone
-	// sendSms()
 	User
 		.create(req.body)
 		.then(user => res.json(user))
@@ -109,6 +103,22 @@ app.put('/api/updateUser/:teamId', (req, res, err) => {
 		})
 })
 
+app.post('/api/updateUser', (req, res, err) => {
+	let userId = {
+		_id: req.session.uid
+	}
+	// console.log("req.body", req.body);
+	User
+		.findOneAndUpdate(userId, { $set: {
+			reminderTime: req.body.time
+		}}, {upsert:true, new: true})
+		// This should return the updated user
+		.then((user) => {
+			console.log("Updated user", user)
+			res.json(user)
+		})
+})
+
 app.use('/api', (req, res) =>
   res.status(404).send({ code: 404, status: 'Not Found' })
 )
@@ -121,8 +131,10 @@ app.use('/api', (req, res) =>
 // Listen
 connect()
 	.then(() =>
-		app.listen(PORT, () => 
+		app.listen(PORT, () => {
 			console.log(`Listening on port: ${PORT}`)
-		)
+			// Calling start of chron operation
+			reminderJob.start()
+		})
 	)
 	.catch(console.error)

@@ -18,5 +18,6 @@ module.exports = mongoose.model('User', {
 			required: true
 		},
 		mobile: String,
-		teamId: String
+		teamId: String,
+		reminderTime: String
 })

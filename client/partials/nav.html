@@ -1,5 +1,5 @@
 <nav ng-controller="NavCtrl">
-  <div class="nav-wrapper">
+  <div class="nav-wrapper blue">
     <div class="container">
       <a href="#" class="brand-logo">Game Watch</a>
       <div ng-show="!loginLink()">
@@ -8,7 +8,7 @@
             <li><a ng-href="/">Login</a></li>
           </span>        
           <span ng-show="myTeamLink()">
-            <li><a ng-href="/#/reminder">Reminders</a></li>
+            <!-- <li><a ng-href="/#/reminder">Reminders</a></li> -->
             <li><a ng-href="/#/nfl">NFL</a></li>
           <!--   <li><a ng-href="/team">Team</a></li> -->
             <li><a href="/" ng-click="logout()">Logout</a></li>
@@ -21,13 +21,13 @@
           </span>
           <span ng-show="nflLink()">
             <li><a ng-href="/#/myTeam">MyTeams</a></li>
-            <li><a ng-href="/#/reminder">Reminders</a></li>
+            <!-- <li><a ng-href="/#/reminder">Reminders</a></li> -->
             <li><a ng-href="/#/team">Team</a></li>
             <li><a href="/" ng-click="logout()">Logout</a></li>             
           </span> 
           <span ng-show="teamLink()">
             <li><a ng-href="/#/myTeam">MyTeams</a></li>
-            <li><a ng-href="/#/reminder">Reminders</a></li>
+            <!-- <li><a ng-href="/#/reminder">Reminders</a></li> -->
             <li><a ng-href="/#/nfl">NFL</a></li>
             <li><a href="/" ng-click="logout()">Logout</a></li>
           </span>               

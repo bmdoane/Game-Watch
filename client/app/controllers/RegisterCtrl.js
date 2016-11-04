@@ -9,7 +9,9 @@ app.controller('RegisterCtrl', function($scope, $http, $location){
 			email: $scope.email,
 			password: $scope.password,
 			userName: $scope.userName,
-			mobile: $scope.mobile									
+			mobile: $scope.mobile,
+			teamId: '',
+			reminderTime: ''									
 		}
 
 		// This has to match server route
