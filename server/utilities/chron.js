@@ -5,7 +5,7 @@ const cronJob = require('cron').CronJob
 const User = require('../models/user')
 
 
-module.exports.reminderJob = new cronJob({cronTime: '0 53 0 * * *',
+module.exports.reminderJob = new cronJob({cronTime: '0 5 * * * *',
   onTick: function() {
 	// user.find for these vars, arrray for each user.mobile and message made for user
 	let mobiles = {}
@@ -19,7 +19,7 @@ module.exports.reminderJob = new cronJob({cronTime: '0 53 0 * * *',
 			})
 		})
 
-	sendSms(`16159722717`, `Thanks for coming out to see Cohort 14 Demo Day!`)
+	sendSms(`16159722717`, `Thanks for coming out to see ourCohort 14 Demo Day!`)
   },
   start: false,
   timeZone: 'America/Chicago'
