@@ -3,6 +3,7 @@
 const User = require('../models/user')
 const mongoose = require('mongoose')
 const { get } = require('request')
+// const { sendSms } = require('../twilioUser')
 // Heroku deployment interferes with use of dotenv
 const dotenv = require('dotenv')
 // This now happens through Heroku
@@ -30,6 +31,7 @@ module.exports.getTeamData = (req, res) => {
 		games = gameentry
 
 		let teamSeason = getTeamSeason(games, teamId)
+
 		res.json(teamSeason)
 	})
 }

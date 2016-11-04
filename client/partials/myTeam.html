@@ -5,6 +5,9 @@
 			<h3>Welcome, {{ user.userName }}!</h3>
 			<h5>Account mobile: {{ user.mobile }}</h5>
 			<h5>Your Team: {{ urCity }} {{ urTeam }}</h5>
+
+			<!-- hide if reminder set -->
+			<button ng-click="setReminder()">Add Reminder</button> 
 		</div>
 		<div class="myTeamBody">
 				<ul ng-repeat="wk in team" ng-if="wk.date >= today">

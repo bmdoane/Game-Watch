@@ -1,7 +1,7 @@
 'use strict'
 
 const User = require('../models/user')
-
+// Grabbing the twilio user file
 // Working
 module.exports.getReminder = (req, res) => {
   User
@@ -16,7 +16,7 @@ module.exports.getReminder = (req, res) => {
 module.exports.createReminder = (req, res) => {
 	//console.log("2req.params.userId", req.params.userId);
   User
-    .findOneAndUpdate({_id: req.params.userId}, {$set: {textTime: req.body.textTime, textDate: req.body.textDate}}, {upsert: true}, (err, newReminder) => {
+    .findOneAndUpdate({_id: req.params.userId}, {$set: {textTime: req.body.textTime}}, {upsert: true}, (err, newReminder) => {
         if(err) {
           console.log('Error occurred in creating reminder')
         } else {

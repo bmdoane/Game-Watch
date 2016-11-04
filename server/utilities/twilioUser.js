@@ -17,10 +17,10 @@ const client = require('twilio')(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN)
 // Twilio method function
 module.exports.sendSms = (to, message) => {
   client.messages.create({ 
-      to: "+16159722717", 
+      to: to, 
       from: "+16159888258", 
-      body: "This is the ship that made the Kessel Run in fourteen parsecs?", 
-      mediaUrl: "https://c1.staticflickr.com/3/2899/14341091933_1e92e62d12_b.jpg",  
+      body: message 
+      // mediaUrl: "https://c1.staticflickr.com/3/2899/14341091933_1e92e62d12_b.jpg",  
   }, function(err, message) { 
       console.log(message.sid) 
   })
